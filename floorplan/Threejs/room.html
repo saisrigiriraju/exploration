@@ -16,19 +16,44 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio( window.devicePixelRatio );
 document.body.appendChild(renderer.domElement);
 
-var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
-camera.position.y = -400;
-camera.position.z = 400;
-camera.rotation.x = 45 * (Math.PI / 180);
-
 var scene = new THREE.Scene();
+
+var camera = new THREE.PerspectiveCamera(100, window.innerWidth / window.innerHeight, 1, 1000);
+camera.position.y = -300;
+camera.position.z = 100;
+//camera.position.y = 0;
+//camera.position.z = 0;
+camera.rotation.x = 90 * (Math.PI / 180);
+//camera.rotation.x = 1.50;
+//camera.rotation.y=0;
+
+/*Draw Grid*/
+	var gridXZ = new THREE.GridHelper(400, 25);
+	//gridXZ.setColors( new THREE.Color(0x006600), new THREE.Color(0x006600) );
+	gridXZ.position.x=10;
+	gridXZ.position.y=0;
+	gridXZ.position.z=50;
+	
+	scene.add(gridXZ);
+/*	
+	var gridXY = new THREE.GridHelper(100, 10);
+	gridXY.position.set( 100,100,0 );
+	gridXY.rotation.x = Math.PI/2;
+	gridXY.setColors( new THREE.Color(0x000066), new THREE.Color(0x000066) );
+	scene.add(gridXY);
+
+	var gridYZ = new THREE.GridHelper(100, 10);
+	gridYZ.position.set( 0,100,100 );
+	gridYZ.rotation.z = Math.PI/2;
+	gridYZ.setColors( new THREE.Color(0x660000), new THREE.Color(0x660000) );
+	scene.add(gridYZ);
+End Draw Grid*/
+
+
 
 var geometry = new THREE.BoxGeometry(50,50,50);
 //var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
-var material = new THREE.MeshBasicMaterial(
-											{
-											 vertexColors:THREE.FaceColors
-											});
+var material = new THREE.MeshBasicMaterial();
 //var material = new THREE.MeshNormalMaterial();
 var face = new THREE.Face3();
 face.color.setRGB( Math.random(),Math.random(), Math.random())
@@ -36,17 +61,20 @@ var cube = new THREE.Mesh(geometry, material);
 //Rotate the image. Camera is for perspective only.
 //Z plane rotates laterally
 cube.rotation.z= 60 * (Math.PI / 180);
-cube.position.x=100;
+cube.position.x=-300;
+cube.position.y=400;
 scene.add(cube);
 cube.material.color.setHex(0x990000);
-
+//camera.lookAt(gridXZ.position);
 
 var material1 = new THREE.MeshBasicMaterial();
 var cube1 = new THREE.Mesh(geometry, material1);
 //Rotate the image. Camera is for perspective only.
 //Z plane rotates laterally
 cube1.rotation.z= 60 * (Math.PI / 180);
-cube1.position.x=0;
+cube1.position.x=-300;
+cube1.position.y=-75;
+cube1.position.z=-200;
 scene.add(cube1);
 
 cube1.material.color.setHex(0x00ff00);
