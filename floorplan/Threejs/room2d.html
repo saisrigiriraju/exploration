@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div style="margin:auto;top:0;left:0;right:0;bottom:0;" >
+<canvas id="myCanvas" width="260" height="120" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+</div>
+
+<script>
+wWidth=window.innerWidth
+wHeight=window.innerHeight
+var c = document.getElementById("myCanvas");
+var d=document.getElementsByTagName("div")[0];
+c.width=wWidth - 50
+c.height=wHeight - 50
+d.width=wWidth - 50
+d.height=wHeight - 50
+
+
+
+var ctx = c.getContext("2d");
+
+//ctx.rect(X, Y, width, height);
+
+ctx.rect(wWidth*0.1, wHeight*0.01, 100, 75);
+ctx.fillText('5007',wWidth*0.1+35, wHeight*0.01+15);
+ctx.fillText('Conference Room',wWidth*0.1+10, wHeight*0.01+25);
+ctx.fillText('1,R',wWidth*0.1+35, wHeight*0.01+35);
+
+ctx.rect(wWidth*0.1, wHeight*0.80, 100, 75);
+ctx.fillText('5148',wWidth*0.1+35, wHeight*0.80+15);
+ctx.fillText('Conference Room',wWidth*0.1+10, wHeight*0.80+25);
+ctx.fillText('1(L)',wWidth*0.1+35, wHeight*0.80+35);
+
+
+ctx.rect(wWidth*0.3, wHeight*0.01, 100, 75);
+ctx.rect(wWidth*0.3, wHeight*0.13, 100, 75);
+ctx.rect(wWidth*0.3, wHeight*0.25, 100, 75);
+
+
+ctx.stroke();
+</script> 
+
+</body>
+</html>
